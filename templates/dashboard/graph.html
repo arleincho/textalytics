@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- // <script type="text/javascript" src="{% static 'grappelli/jquery/ui/js/jquery-ui-1.10.3.custom.min.js' %}"></script> -->
+    <script type="text/javascript" src="{% static 'graphs/highcharts.js' %}"></script>
+    <script type="text/javascript">
+    $(function () {
+        $.getJSON("{% url 'data' %}", function(data) {
+            data['credits'] = {
+                enabled: true,
+                href: "http://www.highchardddts.com",
+                position: null,
+                style: null,
+                text: "Highcharts.comsss"
+            };
+            console.log(data);
+            $('#container').highcharts(data);
+        });
+    });
+    </script>
+</head>
+<body>
+<div id="container" style="height: 300px"></div>
+</body>
+</html>
