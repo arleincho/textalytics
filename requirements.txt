@@ -1,4 +1,4 @@
-django>=1.4
+django==1.7
 django-grappelli
 git+https://github.com/novapost/django-highcharts.git
 django-import-export
