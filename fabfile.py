@@ -347,10 +347,9 @@ def install():
             sudo("update-locale %s" % locale)
             run("exit")
     sudo("apt-get update -y -q")
-    apt("nginx libjpeg-dev python-dev python-setuptools git-core "
-        "postgresql libpq-dev memcached supervisor")
+    apt("rabbitmq-server")
     sudo("easy_install pip")
-    sudo("pip install virtualenv mercurial")
+    sudo('pip install "celery[librabbitmq]"')
 
 
 @task
@@ -413,8 +412,8 @@ def create():
     with project():
         if env.reqs_path:
             pip("-r %s/%s" % (env.proj_path, env.reqs_path))
-        pip("gunicorn setproctitle south psycopg2 "
-            "django-compressor python-memcached")
+        # pip("gunicorn setproctitle south psycopg2 "
+        #     "django-compressor python-memcached")
         manage("syncdb --noinput")
         # python("from django.conf import settings;"
         #        "from django.contrib.sites.models import Site;"

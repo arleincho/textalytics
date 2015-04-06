@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tvwpurjfxt5em29r_&sm6b61y8u-^7&irimyodv3mgq+36%n9j'
+SECRET_KEY = "5un?VT|fmX(_UU1UYZY}la1Hu5ztp5!y3nqe_Thain<ahH0Ieg9Eew@ophia1Hshi4)s'6aAXRkL8z2$h+1j=-d6#y0k2jyfog3baw+^iebah5eger$uraechohyoh3see9shaizu2fhu7bo7she_Th"
+NEVERCACHE_KEY = "?%=UC?.L/UIb'O7Ksul8v3)Mo9WS;[4Bino.6ZJ1tl?cnTxej|xZ'VD@Zm|->qY'<i2FV\q6/sz.GmZ:V'69E^,#);X#&f#P)b)da43BW=)hen<ahH0Ieg9Eew@ophimae7aeph4ait"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,8 +29,9 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost'
+    'ecci.arley.co'
 ]
+INTERNAL_IPS = ("127.0.0.1",)
 
 
 # Application definition
@@ -193,7 +195,7 @@ FABRIC = {
     "HOSTS": ALLOWED_HOSTS[:1], # List of hosts to deploy to (eg, first host)
     "HOSTS": ALLOWED_HOSTS[:1], # List of domains to deploy to (eg, first host)
     "DOMAINS": ALLOWED_HOSTS, # Domains for public site
-    "REPO_URL": "https://github.com/skoshapp/GetASkosh.git", # Project's repo URL
+    "REPO_URL": "https://github.com/arleincho/textalytics.git", # Project's repo URL
     "VIRTUALENV_HOME":  "/var/textalytics", # Absolute remote path for virtualenvs
     "PROJECT_NAME": PROJECT_NAME, # Unique identifier for project
     "REQUIREMENTS_PATH": "requirements.txt", # Project's pip requirements

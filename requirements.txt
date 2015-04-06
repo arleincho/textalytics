@@ -1,0 +1,5 @@
+django>=1.4
+django-grappelli
+django-highcharts
+django-import-export
+django-celery
