@@ -427,7 +427,8 @@ def create():
         #            "Site.objects.get_or_create(domain='%s');" % domain)
         if env.admin_pass:
             pw = env.admin_pass
-            user_py = ("from django.conf import settings;"
+            user_py = ("import django;django.setup();"
+                       "from django.conf import settings;"
                        "from django.contrib.auth import get_user_model;"
                        "User = get_user_model();"
                        "u, _ = User.objects.get_or_create(email='arley.wilches@gmail.com');"
