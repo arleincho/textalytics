@@ -184,7 +184,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
 
 LOCALE_PATHS = (
-    os.path.join(PROJECT_ROOT, 'conf', 'locale')
+    os.path.join(PROJECT_ROOT, 'conf', 'locale'),
 )
 
 
