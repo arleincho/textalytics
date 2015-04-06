@@ -50,7 +50,8 @@ env.domains = conf.get("DOMAINS", [conf.get("LIVE_HOSTNAME", env.hosts[0])])
 env.domains_nginx = " ".join(env.domains)
 env.domains_nginx_redirect = env.domains[0].replace('www.', '')
 env.domains_python = ", ".join(["'%s'" % s for s in env.domains])
-env.ssl_disabled = "#" if len(env.domains) > 1 else ""
+# env.ssl_disabled = "#" if len(env.domains) > 1 else ""
+env.ssl_disabled = ""
 env.repo_url = conf.get("REPO_URL", "")
 env.git = env.repo_url.startswith("git") or env.repo_url.endswith(".git")
 env.reqs_path = conf.get("REQUIREMENTS_PATH", None)
@@ -388,27 +389,29 @@ def create():
          (env.proj_name, env.proj_name, env.locale, env.locale))
 
     # Set up SSL certificate.
-    if not env.ssl_disabled:
-        conf_path = "/etc/nginx/conf"
-        if not exists(conf_path):
-            sudo("mkdir %s" % conf_path)
-        with cd(conf_path):
-            crt_file = env.proj_name + ".crt"
-            key_file = env.proj_name + ".key"
-            if not exists(crt_file) and not exists(key_file):
-                try:
-                    crt_local, = glob(join("deploy", "*.crt"))
-                    key_local, = glob(join("deploy", "*.key"))
-                except ValueError:
-                    parts = (crt_file, key_file, env.domains[0])
-                    sudo("openssl req -new rsa:2048 -nodes -out %s -keyout %s "
-                         "-subj '/CN=%s' -days 3650" % parts)
-                else:
-                    upload_template(crt_local, crt_file, use_sudo=True)
-                    upload_template(key_local, key_file, use_sudo=True)
+    # if not env.ssl_disabled:
+    #     conf_path = "/etc/nginx/conf"
+    #     if not exists(conf_path):
+    #         sudo("mkdir %s" % conf_path)
+    #     with cd(conf_path):
+    #         crt_file = env.proj_name + ".crt"
+    #         key_file = env.proj_name + ".key"
+    #         if not exists(crt_file) and not exists(key_file):
+    #             try:
+    #                 crt_local, = glob(join("deploy", "*.crt"))
+    #                 key_local, = glob(join("deploy", "*.key"))
+    #             except ValueError:
+    #                 parts = (crt_file, key_file, env.domains[0])
+    #                 sudo("openssl req -new rsa:2048 -nodes -out %s -keyout %s "
+    #                      "-subj '/CN=%s' -days 3650" % parts)
+    #             else:
+    #                 upload_template(crt_local, crt_file, use_sudo=True)
+    #                 upload_template(key_local, key_file, use_sudo=True)
 
     # Set up project.
-    upload_template_and_reload("settings")
+    # upload_template_and_reload("settings")
+    # for name in get_templates():
+    #     upload_template_and_reload(name)
     with project():
         if env.reqs_path:
             pip("-r %s/%s" % (env.proj_path, env.reqs_path))

@@ -1,5 +1,5 @@
 django>=1.4
 django-grappelli
-django-highcharts
+git+https://github.com/novapost/django-highcharts.git
 django-import-export
 django-celery
