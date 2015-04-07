@@ -6,3 +6,4 @@ django-celery
 django_extensions
 psycopg2
 jsonfield
+celery[librabbitmq]

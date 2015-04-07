@@ -336,6 +336,7 @@ def manage(command):
 # Install and configure #
 #########################
 
+
 @task
 @log_call
 def install():
@@ -348,7 +349,7 @@ def install():
             sudo("update-locale %s" % locale)
             run("exit")
     sudo("apt-get update -y -q")
-    apt("rabbitmq-server")
+    apt("rabbitmq-server librabbitmq0")
     sudo("easy_install pip")
     sudo('pip install "celery[librabbitmq]"')
 
@@ -554,6 +555,6 @@ def all():
     Installs everything required on a new system and deploy.
     From the base software, up to the deployed project.
     """
-    # install()
+    install()
     if create():
         deploy()
