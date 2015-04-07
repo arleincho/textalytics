@@ -351,7 +351,7 @@ def install():
     sudo("apt-get update -y -q")
     apt("rabbitmq-server librabbitmq0")
     sudo("easy_install pip")
-    sudo('pip install "celery[librabbitmq]"')
+    # sudo('pip install "celery[librabbitmq]"')
 
 
 @task
@@ -416,7 +416,7 @@ def create():
     with project():
         if env.reqs_path:
             pip("-r %s/%s" % (env.proj_path, env.reqs_path))
-        pip("gunicorn setproctitle south psycopg2 celery[librabbitmq] git+https://github.com/arleincho/textalyticsSrc.git")
+        pip("gunicorn setproctitle south psycopg2 pymongo celery[librabbitmq] git+https://github.com/arleincho/textalyticsSrc.git")
         #     "django-compressor python-memcached")
         manage("syncdb --noinput")
         # python("from django.conf import settings;"
@@ -432,7 +432,7 @@ def create():
                        "from django.conf import settings;"
                        "from django.contrib.auth import get_user_model;"
                        "User = get_user_model();"
-                       "u, _ = User.objects.get_or_create(email='arley.wilches@gmail.com');"
+                       "u, _ = User.objects.get_or_create(username='arley.wilches@gmail.com');"
                        "u.is_staff = u.is_superuser = True;"
                        "u.set_password('%s');"
                        "u.save();" % pw)

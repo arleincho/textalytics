@@ -24,9 +24,9 @@ SECRET_KEY = "5un?VT|fmX(_UU1UYZY}la1Hu5ztp5!y3nqe_Thain<ahH0Ieg9Eew@ophia1Hshi4
 NEVERCACHE_KEY = "?%=UC?.L/UIb'O7Ksul8v3)Mo9WS;[4Bino.6ZJ1tl?cnTxej|xZ'VD@Zm|->qY'<i2FV\q6/sz.GmZ:V'69E^,#);X#&f#P)b)da43BW=)hen<ahH0Ieg9Eew@ophimae7aeph4ait"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = [
     'ecci.arley.co'
