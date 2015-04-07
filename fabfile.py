@@ -414,9 +414,9 @@ def create():
     # for name in get_templates():
     #     upload_template_and_reload(name)
     with project():
+        pip("gunicorn setproctitle south psycopg2 celery[librabbitmq] git+https://github.com/arleincho/textalyticsSrc.git"
         if env.reqs_path:
             pip("-r %s/%s" % (env.proj_path, env.reqs_path))
-        # pip("gunicorn setproctitle south psycopg2 "
         #     "django-compressor python-memcached")
         manage("syncdb --noinput")
         # python("from django.conf import settings;"

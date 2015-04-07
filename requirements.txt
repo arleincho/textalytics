@@ -4,7 +4,4 @@ git+https://github.com/novapost/django-highcharts.git
 django-import-export
 django-celery
 django_extensions
-psycopg2
 jsonfield
-celery[librabbitmq]
-git+https://github.com/arleincho/textalyticsSrc.git
