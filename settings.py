@@ -26,7 +26,7 @@ NEVERCACHE_KEY = "?%=UC?.L/UIb'O7Ksul8v3)Mo9WS;[4Bino.6ZJ1tl?cnTxej|xZ'VD@Zm|->q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = [
     'ecci.arley.co'

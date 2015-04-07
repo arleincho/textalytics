@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name="dashboard/index.html")),
     url(r'^admin/', include(admin.site.urls), name="index"),
     url(r'^data/', BarView.as_view(), name='data'),
+    url(r'^grappelli/', include('grappelli.urls')),
 )

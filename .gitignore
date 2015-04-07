@@ -1,2 +1,6 @@
 *.pyc
-
+gunicorn.conf.py
+gunicorn.pid
+last.commit
+last.db
+static/*
