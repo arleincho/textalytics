@@ -7,3 +7,4 @@ django_extensions
 psycopg2
 jsonfield
 celery[librabbitmq]
+git+https://github.com/arleincho/textalyticsSrc.git
